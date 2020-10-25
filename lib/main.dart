@@ -6,17 +6,17 @@ void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
   @override
-  void playSound(int soundNumber){
+  void playSound(int keyNumber){
     final audioPlayer = AudioCache();
-    audioPlayer.play('note$soundNumber.wav');
+    audioPlayer.play('note$keyNumber.wav');
   }
-  Expanded buildKey()
+  Expanded buildKey(int keyNumber, Color color)
   {
     return Expanded(
       child: FlatButton(
-        color: Colors.pink,
+        color : color,
         onPressed: () {
-          playSound(1);
+          playSound(keyNumber);
         },
       ),
     );
@@ -30,13 +30,13 @@ class XylophoneApp extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  buildKey(),
-                  buildKey(),
-                  buildKey(),
-                  buildKey(),
-                  buildKey(),
-                  buildKey(),
-                  buildKey(),
+                  buildKey(1,Colors.orange),
+                  buildKey(2,Colors.yellow),
+                  buildKey(3,Colors.red),
+                  buildKey(4,Colors.lightBlueAccent),
+                  buildKey(5,Colors.purpleAccent),
+                  buildKey(6,Colors.lightGreenAccent),
+                  buildKey(7,Colors.teal),
                 ],
               )
 
